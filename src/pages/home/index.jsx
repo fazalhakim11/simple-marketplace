@@ -5,6 +5,14 @@ import useProductStores from "../../stores/productStores.js"
 
 const Home = (props) => {
     const products = useProductStores((state)=> state.products)
+    const cart = useProductStores((state)=> state.cart)
+    const addToCart = useProductStores((state)=> state.addToCart)
+
+    const handleAddToCart = (product)=>{
+        addToCart(product)
+        console.log("Berhasil menambahkan", cart)
+    }
+
     return (
         <>
         <Navbar title="Toko Onlineku"/>
@@ -13,6 +21,7 @@ const Home = (props) => {
             <Card
                 key={String(index)}
                 {...product}
+                onClick={()=>handleAddToCart(product)}
             />
         ))}
         </div>

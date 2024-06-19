@@ -5,7 +5,7 @@ import {
 import Home from "../pages/home";
 import Cart from "../pages/cart";
 
-const Router = () => {
+const index = () => {
     const router = createBrowserRouter([
         {
             path: "/",
@@ -16,7 +16,9 @@ const Router = () => {
             element: <Cart/> ,
         },
       ]);
-    return <RouterProvider router={router}/>
+    return( 
+      <RouterProvider router={router}/>
+    )
 };
 
-export default Router
+export default index
