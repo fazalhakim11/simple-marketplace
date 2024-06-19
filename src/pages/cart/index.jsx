@@ -4,6 +4,12 @@ import Card from "../../components/Card";
 
 const Cart = (props) => {
   const cart = useProductStores((state)=> state.cart)
+  const removeFromCart = useProductStores((state)=>state.removeFromCart)
+
+  const hapusCartItem =(id)=>{
+    removeFromCart(id)
+  }
+
   return (
     <div className="min-vh-100">
       <Navbar title="Cart"/>
@@ -18,6 +24,7 @@ const Cart = (props) => {
             key={String(index)}
             {...item}
             cart
+            hapusCartItem={()=>hapusCartItem(item.id)}
           />
         ))
         }

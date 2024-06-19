@@ -19,6 +19,7 @@ const Card = (props) => {
         </div>
         <button
           className="py-2 my-auto d-block bg-danger"
+          onClick={props.hapusCartItem}
         >
           Hapus
         </button>
