@@ -19,7 +19,7 @@ const Home = (props) => {
         <div className="d-flex flex-wrap gap-4 mt-3">
         {products.map((product, index)=>(
             <Card
-                key={product.id}
+                key={index}
                 {...product}
                 onClick={()=>handleAddToCart(product)}
             />

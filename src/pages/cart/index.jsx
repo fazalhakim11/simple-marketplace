@@ -6,8 +6,8 @@ const Cart = (props) => {
   const cart = useProductStores((state)=> state.cart)
   const removeFromCart = useProductStores((state)=>state.removeFromCart)
 
-  const hapusCartItem =(id)=>{
-    removeFromCart(id)
+  const hapusCartItem =(i)=>{
+    removeFromCart(i)
   }
 
   return (
@@ -21,10 +21,10 @@ const Cart = (props) => {
         : 
         cart.map((item, index)=>(
           <Card 
-            key={item.id}
+            key={index}
             {...item}
             cart
-            hapusCartItem={()=>hapusCartItem(item.id)}
+            hapusCartItem={()=>hapusCartItem(index)}
           />
         ))
         }

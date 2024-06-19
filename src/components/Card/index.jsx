@@ -47,7 +47,7 @@ Card.propTypes = {
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
-  cart: PropTypes.bool.isRequired,
-  hapusCartItem: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired
+  cart: PropTypes.bool,
+  hapusCartItem: PropTypes.func,
+  onClick: PropTypes.func
 }
