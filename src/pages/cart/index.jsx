@@ -21,7 +21,7 @@ const Cart = (props) => {
         : 
         cart.map((item, index)=>(
           <Card 
-            key={String(index)}
+            key={item.id}
             {...item}
             cart
             hapusCartItem={()=>hapusCartItem(item.id)}
