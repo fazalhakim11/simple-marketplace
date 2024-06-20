@@ -9,7 +9,7 @@ const useProductStores = create((set) => (
                 title: "Jersey Real Madrid",
                 desc: "Produk jersey bola murah meriah kualias top tiada duanya",
                 alt: "Jersey Real Madrid",
-                price: 78000
+                price: 78000,
             },
             {
                 id: 2,
@@ -17,7 +17,7 @@ const useProductStores = create((set) => (
                 title: "Jersey MU",
                 desc: "Produk jersey bola murah meriah kualias top tiada duanya",
                 alt: "Jersey MU",
-                price: 85000
+                price: 85000,
             },
             {
                 id: 3,
@@ -25,7 +25,7 @@ const useProductStores = create((set) => (
                 title: "Jersey Liverpool",
                 desc: "Produk jersey bola murah meriah kualias top tiada duanya",
                 alt: "Jersey Liverpool",
-                price: 93000
+                price: 93000,
             },
             {
                 id: 4,
@@ -33,7 +33,7 @@ const useProductStores = create((set) => (
                 title: "Jersey Inggris",
                 desc: "Produk jersey bola murah meriah kualias top tiada duanya",
                 alt: "Jersey Inggris",
-                price: 87000
+                price: 87000,
             },
             {
                 id: 5,
@@ -41,7 +41,7 @@ const useProductStores = create((set) => (
                 title: "Jersey Jerman",
                 desc: "Produk jersey bola murah meriah kualias top tiada duanya",
                 alt: "Jersey Jerman",
-                price: 92000
+                price: 92000,
             }
         ],
         cart: [],
