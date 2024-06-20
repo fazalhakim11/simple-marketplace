@@ -16,8 +16,18 @@ const Card = (props) => {
       <div className="d-flex justify-content-between">
         <p className="m-0 my-auto">{props.quantity}</p>
         <div className="d-flex justify-content-between w-25"> 
-          <button className="bg-transparent text-black rounded p-1">+</button>
-          <button className="bg-transparent text-black rounded p-1">-</button>
+          <button  
+            onClick={props.increase}
+            className="bg-transparent text-black rounded p-1"
+          >
+            +
+          </button>
+          <button 
+            onClick={props.decrease}
+            className="bg-transparent text-black rounded p-1"
+          >
+            -
+          </button>
         </div>
         <button
           className="py-2 my-auto d-block bg-danger"
@@ -51,6 +61,8 @@ Card.propTypes = {
   price: PropTypes.number,
   cart: PropTypes.bool,
   quantity: PropTypes.number,
+  increase: PropTypes.func,
+  decrease: PropTypes.func,
   hapusCartItem: PropTypes.func,
   onClick: PropTypes.func
 }

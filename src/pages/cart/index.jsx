@@ -4,6 +4,8 @@ import Card from "../../components/Card";
 
 const Cart = (props) => {
   const cart = useProductStores((state)=> state.cart)
+  const addToCart = useProductStores((state)=> state.addToCart)
+  const decreaseQuantity = useProductStores((state)=> state.decreaseQuantity)
   const removeFromCart = useProductStores((state)=>state.removeFromCart)
 
   const hapusCartItem =(i)=>{
@@ -25,6 +27,8 @@ const Cart = (props) => {
               key={index}
               {...item}
               cart
+              increase={()=>addToCart(item)}
+              decrease={()=>decreaseQuantity(item.id)}
               hapusCartItem={()=>hapusCartItem(index)}
             />
           ))

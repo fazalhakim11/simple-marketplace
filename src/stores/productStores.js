@@ -56,6 +56,20 @@ const useProductStores = create((set) => (
                 return {cart: [{...productToadd, quantity: 1}, ...state.cart]};
             }
         }),
+        decreaseQuantity: (productId)=> set((state)=>{
+            const updatedCart = state.cart.map(item => {
+                if (item.id === productId) {
+                    const updatedQuantity = item.quantity - 1
+                    if (updatedQuantity <= 0){
+                        return null
+                    }else{
+                        return {...item, quantity: updatedQuantity}
+                    }
+                }
+                return item            
+            }).filter(Boolean)
+            return {cart: updatedCart}
+        }),
         removeFromCart: (i) => set((state)=>({cart: state.cart.filter((product, index)=> index !== i)})), 
     }
 ));
