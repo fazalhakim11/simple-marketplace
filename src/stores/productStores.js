@@ -70,7 +70,12 @@ const useProductStores = create((set) => (
             }).filter(Boolean)
             return {cart: updatedCart}
         }),
-        removeFromCart: (i) => set((state)=>({cart: state.cart.filter((product, index)=> index !== i)})), 
+        removeFromCart: (i) => set((state)=>({cart: state.cart.filter((product, index)=> index !== i)})),
+        formatNumber: (number)=>{
+            let numStr = number.toString()
+            numStr = numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+            return numStr
+          }, 
     }
 ));
 

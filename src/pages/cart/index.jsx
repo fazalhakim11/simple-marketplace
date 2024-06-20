@@ -7,10 +7,12 @@ const Cart = (props) => {
   const addToCart = useProductStores((state)=> state.addToCart)
   const decreaseQuantity = useProductStores((state)=> state.decreaseQuantity)
   const removeFromCart = useProductStores((state)=>state.removeFromCart)
+  const formatNumber = useProductStores((state)=> state.formatNumber)
 
   const hapusCartItem =(i)=>{
     removeFromCart(i)
   } 
+  const total = cart.reduce((total, item)=> total + (item.price*item.quantity),0)
 
   return (
     <div className="min-vh-100 d-flex flex-column ">
@@ -23,10 +25,10 @@ const Cart = (props) => {
             </p>
           : 
             <div className="d-flex justify-content-between">
-              <div className="d-flex flex-wrap gap-4 mt-3">
+              <div style={{width: "75%"}} className="d-flex flex-wrap gap-4 mt-3">
                 {cart.map((item, index)=>(
                   <Card 
-                    key={index}
+                    key={item.id}
                     {...item}
                     cart
                     increase={()=>addToCart(item)}
@@ -36,7 +38,7 @@ const Cart = (props) => {
                 ))}
               </div>
               <div 
-                style={{width: "20%"}}
+                style={{width: "23%"}}
                 className="mh-100 py-3 px-3 mt-3 border-start border-dark-subtle"
               >
                 <h4>Order Summary</h4>
@@ -44,14 +46,17 @@ const Cart = (props) => {
                   <div key={item.id}>
                     <div className="d-flex justify-content-between"> 
                       <h6 className="mb-0">{item.title}</h6>
-                      <h6 className="mb-0">Rp {item.price * item.quantity}</h6>
+                      <h6 className="mb-0">Rp {formatNumber(item.price * item.quantity)}</h6>
                     </div>
                     <div>
                       <p >Jumlah: {item.quantity}</p>
                     </div>
                   </div>
                 )}
-                <h6>Total: </h6>
+                <div className="d-flex justify-content-between mb-3">
+                  <h6>Total: </h6>
+                  <h6>Rp {formatNumber(total)}</h6>
+                </div>
                 <div className="d-flex justify-content-end">
                   <button className="btn btn-success">Checkout</button>
                 </div>

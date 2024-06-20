@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
+import useProductStores from '../../stores/productStores';
 
 const Card = (props) => {
+  const formatNumber = useProductStores((state)=> state.formatNumber)
   return (
   <div 
     className="card" 
@@ -10,7 +12,7 @@ const Card = (props) => {
     <div className="card-body">
       <h5 className="card-title">{props.title}</h5>
       <p className="card-text">{props.desc}</p>
-      <p className='fw-medium mb-1'>Rp {props.price}</p>
+      <p className='fw-medium mb-1'>Rp {formatNumber(props.price)}</p>
       
       {props.cart ?
       <div className="d-flex justify-content-between">
