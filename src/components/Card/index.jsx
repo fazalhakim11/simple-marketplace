@@ -10,11 +10,12 @@ const Card = (props) => {
     <div className="card-body">
       <h5 className="card-title">{props.title}</h5>
       <p className="card-text">{props.desc}</p>
+      <p className='fw-medium'>Rp {props.price}</p>
       
       {props.cart ?
       <div className="d-flex justify-content-between">
-        <p className="m-0 my-auto">Qty:</p>
-        <div className="d-flex flex-column"> 
+        <p className="m-0 my-auto">{props.quantity}</p>
+        <div className="d-flex justify-content-between w-25"> 
           <button className="bg-transparent text-black rounded p-1">+</button>
           <button className="bg-transparent text-black rounded p-1">-</button>
         </div>
@@ -47,7 +48,9 @@ Card.propTypes = {
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
+  price: PropTypes.number,
   cart: PropTypes.bool,
+  quantity: PropTypes.number,
   hapusCartItem: PropTypes.func,
   onClick: PropTypes.func
 }

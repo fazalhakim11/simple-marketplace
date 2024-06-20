@@ -6,7 +6,7 @@ const index = (props) => {
     const cart = useProductStores((state)=> state.cart)
     const navigate = useNavigate()
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom">
         <div className="container-fluid px-0">
             <h1 style={{ cursor: 'pointer' }} className="navbar-brand m-0 p-0">{props.title}</h1>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
