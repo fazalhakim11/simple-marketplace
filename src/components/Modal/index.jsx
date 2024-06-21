@@ -17,6 +17,8 @@ const index = ({isOpen, closeModal}) => {
         }
     }
 
+    const pay = paymentAmount.toLocaleString()
+
     if (!isOpen) return null
 
   return (
@@ -25,7 +27,7 @@ const index = ({isOpen, closeModal}) => {
             <div className="d-flex justify-content-between mb-4 ">
                 <h2>Payment</h2>
                 <div>
-                    <button onClick={closeModal} className="p-0 pb-1 px-2 m-0">&times;</button>
+                    <button onClick={closeModal} className="bg-transparent text-black fs-4 p-0 m-0">&times;</button>
                 </div>
             </div>
             {cart.map((item)=>
@@ -47,6 +49,7 @@ const index = ({isOpen, closeModal}) => {
                 <input 
                     type="number" 
                     placeholder="Input money"
+                    value={pay}
                     onChange={(e)=> setPaymentAmount(e.target.value)}
                 />
                 <button className="ms-3 py-1" type="submit">Pay</button>

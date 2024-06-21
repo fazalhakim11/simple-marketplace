@@ -4,6 +4,7 @@ import {
   } from "react-router-dom";
 import Home from "../pages/home";
 import Cart from "../pages/cart";
+import OrderHistory from "../pages/orderHistory"
 
 const index = () => {
     const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const index = () => {
             path: "/cart",
             element: <Cart/> ,
         },
+        {
+          path: "/order-history",
+          element: <OrderHistory/>
+        }
       ]);
     return( 
       <RouterProvider router={router}/>
