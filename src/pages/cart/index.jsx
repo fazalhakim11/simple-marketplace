@@ -29,7 +29,11 @@ const Cart = (props) => {
   return (
     <div className="min-vh-100 d-flex flex-column ">
       <Navbar title="Cart"/>
-      <Modal isOpen={isOpen} closeModal={closeModal}/>
+      {cart.length === 0 ?
+        ""
+      :
+        <Modal isOpen={isOpen} closeModal={closeModal}/>
+      }
       <div className="d-flex justify-content-between">
         <div className="w-100">
           {cart.length === 0 ? 

@@ -45,6 +45,7 @@ const useProductStores = create((set) => (
             }
         ],
         cart: [],
+        deleteCart: ()=> set(({cart: []})),
         // addToCart: (product) => set((state)=> ({cart: [product, ...state.cart]})),
         addToCart: (productToadd) => set((state)=> {
             const productIndex = state.cart.findIndex(item=> item.id === productToadd.id);

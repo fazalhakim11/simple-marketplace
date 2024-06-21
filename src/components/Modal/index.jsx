@@ -8,6 +8,7 @@ const index = ({isOpen, closeModal}) => {
     const setPaymentAmount = usePayment((state)=> state.setPaymentAmount)
     const orderHistory = usePayment((state)=> state.orderHistory)
     const setOrderHistory = usePayment((state)=> state.setOrderHistory)
+    const deleteCart = useProductStores((state)=> state.deleteCart)
 
     const total = cart.reduce((total, item)=> total + (item.price * item.quantity),0)
     
@@ -21,7 +22,7 @@ const index = ({isOpen, closeModal}) => {
             setOrderHistory(cart)
             console.log("Berhasil Membeli: ", orderHistory)
             setPaymentAmount("")
-            
+            deleteCart()
         }
     }
 
