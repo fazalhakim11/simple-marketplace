@@ -4,9 +4,11 @@ const index = (props) => {
   return (
     <div className="min-vh-100 d-flex flex-column ">
         <Navbar title="Order History"/>
-        <p className="text-center mt-5">
-            No order history
-        </p>
+        <div>
+            <p className="text-center mt-5">
+                No order history
+            </p>
+        </div>
     </div>
   )
 };

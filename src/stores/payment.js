@@ -1,12 +1,13 @@
 import { create } from "zustand";
 
-const usePayment = create((set)=>(
+const usePayment = create((set)=>{
+    return (
     {
         paymentAmount: "",
         setPaymentAmount: (res)=> set({paymentAmount: res}),
-        orderHistoty: [],
-        setOrdetHistory:(product)=> set((state)=> [])
+        orderHistory: [],
+        setOrderHistory: (products)=> set((state)=> ({orderHistory: [{...products}, ...state.orderHistory]}))
     }
-))
+)})
 
 export default usePayment

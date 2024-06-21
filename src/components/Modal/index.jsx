@@ -6,18 +6,24 @@ const index = ({isOpen, closeModal}) => {
     const formatNumber = useProductStores((state)=> state.formatNumber)
     const paymentAmount = usePayment((state)=> state.paymentAmount)
     const setPaymentAmount = usePayment((state)=> state.setPaymentAmount)
+    const orderHistory = usePayment((state)=> state.orderHistory)
+    const setOrderHistory = usePayment((state)=> state.setOrderHistory)
 
     const total = cart.reduce((total, item)=> total + (item.price * item.quantity),0)
+    
     const handleSubmit = (e)=>{
         e.preventDefault()
         if (paymentAmount < total){
             alert("Enter the appropriate amount of money")
         } else {
             console.log(`Bayar: ${paymentAmount}, Kembali: ${paymentAmount-total}`)
+            console.log(cart)
+            setOrderHistory(cart)
+            console.log("Berhasil Membeli: ", orderHistory)
+            setPaymentAmount("")
+            
         }
     }
-
-    const pay = paymentAmount.toLocaleString()
 
     if (!isOpen) return null
 
@@ -45,11 +51,11 @@ const index = ({isOpen, closeModal}) => {
                 <h4>Total: </h4>
                 <h4>Rp {formatNumber(total)}</h4>
             </div>
-            <form onSubmit={handleSubmit} className="align-self-center">
+            <form onSubmit={(e, item)=>handleSubmit(e,item)} className="align-self-center">
                 <input 
                     type="number" 
                     placeholder="Input money"
-                    value={pay}
+                    value={paymentAmount}
                     onChange={(e)=> setPaymentAmount(e.target.value)}
                 />
                 <button className="ms-3 py-1" type="submit">Pay</button>
