@@ -1,6 +1,10 @@
+import { useState } from "react";
+
 import Navbar from "../../components/Navbar"
 import useProductStores from "../../stores/productStores";
 import Card from "../../components/Card";
+import Modal from "../../components/Modal"
+
 
 const Cart = (props) => {
   const cart = useProductStores((state)=> state.cart)
@@ -14,14 +18,23 @@ const Cart = (props) => {
   } 
   const total = cart.reduce((total, item)=> total + (item.price*item.quantity),0)
 
+  const [isOpen, setIsOpen] = useState(false)
+  const openModal =()=>{
+    setIsOpen(true)
+  }
+  const closeModal =()=>{
+    setIsOpen(false)
+  }
+
   return (
     <div className="min-vh-100 d-flex flex-column ">
       <Navbar title="Cart"/>
+      <Modal isOpen={isOpen} closeModal={closeModal}/>
       <div className="d-flex justify-content-between">
         <div className="w-100">
           {cart.length === 0 ? 
             <p className="text-center mt-5">
-              Tidak ada data
+              Cart is empty
             </p>
           : 
             <div className="d-flex justify-content-between">
@@ -49,7 +62,7 @@ const Cart = (props) => {
                       <h6 className="mb-0">Rp {formatNumber(item.price * item.quantity)}</h6>
                     </div>
                     <div>
-                      <p >Jumlah: {item.quantity}</p>
+                      <p>Quantity: {item.quantity}</p>
                     </div>
                   </div>
                 )}
@@ -58,7 +71,7 @@ const Cart = (props) => {
                   <h6>Rp {formatNumber(total)}</h6>
                 </div>
                 <div className="d-flex justify-content-end">
-                  <button className="btn btn-success">Checkout</button>
+                  <button className="btn btn-success" onClick={openModal}>Checkout</button>
                 </div>
               </div>
             </div>
