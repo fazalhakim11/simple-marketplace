@@ -52,7 +52,7 @@ const index = ({isOpen, closeModal}) => {
                 <h4>Total: </h4>
                 <h4>Rp {formatNumber(total)}</h4>
             </div>
-            <form onSubmit={(e, item)=>handleSubmit(e,item)} className="align-self-center">
+            <form onSubmit={(e, item)=>handleSubmit(e)} className="align-self-center">
                 <input 
                     type="number" 
                     placeholder="Input money"
