@@ -17,7 +17,14 @@ const index = (props) => {
               {orderHistory.map((product, index)=> 
                 <Card 
                   key={index}
-                  {...product}
+                  // title={Object.values(product)[0].title}
+                  // quantity={Object.values(product)[0].quantity}
+                  // price={Object.values(product)[0].price}
+                  product={product}
+                  date={product.date.toString()}
+                  totalPrice={product.totalPrice}
+                  payment={product.paymentAmount}
+                  change={product.change}
                 />
               )}
             </div>

@@ -18,7 +18,7 @@ const index = ({isOpen, closeModal}) => {
             alert("Enter the appropriate amount of money")
         } else {
             console.log(`Bayar: ${paymentAmount}, Kembali: ${paymentAmount-total}`)
-            setOrderHistory(cart)
+            setOrderHistory(cart, total, paymentAmount)
             console.log("Berhasil Membeli: ", orderHistory)
             setPaymentAmount("")
             deleteCart()
