@@ -23,7 +23,11 @@ const Cart = (props) => {
   const total = cart.filter(item=> item.selected).reduce((total, item)=> total + (item.price * item.quantity),0)
 
   const openModal =()=>{
-      setIsOpen(true)
+    const allSelected = cart.every(item=> !item.selected)
+    if(allSelected){
+      alert("Please select a product to checkout")
+    } else   
+    setIsOpen(true)
   }    
   const closeModal =()=>{
     setIsOpen(false)
@@ -62,7 +66,7 @@ const Cart = (props) => {
                 className="mh-100 py-3 px-3 mt-3 border-start border-dark-subtle"
               >
                 <h4>Order Summary</h4>
-                <button className="p-0 bg-transparent text-black fw-normal" onClick={()=>checkedAll()}>Select All</button>
+                <button className="p-0 bg-transparent text-black fw-normal" onClick={checkedAll}>Select All</button>
                 {cart.map((item)=>
                   <div key={item.id}>
                     <div>

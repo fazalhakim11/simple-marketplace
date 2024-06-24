@@ -55,8 +55,12 @@ const useProductStores = create((set) => (
             return {cart: updatedCart}
         }),
         checkedAll: ()=>set((state)=>{
-            const updatedCart = state.cart.map(item=>({...item, selected: !item.selected}))
-            return {cart: updatedCart}
+            const allSelected = state.cart.every(item=> item.selected)
+            const updatedCart = state.cart.map(item=>({
+                ...item,
+                selected: !allSelected
+            }))
+            return {...state, cart: updatedCart}
         }),
         // addToCart: (product) => set((state)=> ({cart: [product, ...state.cart]})),
         addToCart: (productToadd) => set((state)=> {
