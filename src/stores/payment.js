@@ -11,9 +11,12 @@ const usePayment = create((set)=>{
             const year = today.getFullYear()
             const month = today.getMonth()+1
             const day = today.getDate()
+            const dayWeek = today.getDay()
+            const daysOfWeek = ["Sunday","Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+            const dayName = daysOfWeek[dayWeek]
             const hour = today.getHours()
             const minute = today.getMinutes()
-            const formatedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} ${hour}:${minute}`    
+            const formatedDate = `${dayName}, ${day.toString().padStart(2, '0')}-${month.toString().padStart(2, '0')}-${year} ${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`    
         return(
             {orderHistory: [
                 {

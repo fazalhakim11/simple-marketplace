@@ -1,9 +1,7 @@
 import useProductStores from "../../../../stores/productStores";
-import usePayment from "../../../../stores/payment";
 
 const index = (props) => {
     const formatNumber = useProductStores((state)=> state.formatNumber)
-    const orderHistory = usePayment((state)=> state.orderHistory)
   return (
     <div className="d-flex justify-content-between mb-3 border-bottom ">
         <div className=" d-flex mb-3">

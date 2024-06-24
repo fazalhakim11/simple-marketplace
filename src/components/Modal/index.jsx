@@ -22,6 +22,7 @@ const index = ({isOpen, closeModal}) => {
             console.log("Berhasil Membeli: ", orderHistory)
             setPaymentAmount("")
             deleteCart()
+            alert(`Purchase Succes, Change Rp ${formatNumber(paymentAmount - total)}`)
         }
     }
 
