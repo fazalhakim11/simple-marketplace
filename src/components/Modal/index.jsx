@@ -9,8 +9,9 @@ const index = ({isOpen, closeModal}) => {
     const orderHistory = usePayment((state)=> state.orderHistory)
     const setOrderHistory = usePayment((state)=> state.setOrderHistory)
     const deleteCart = useProductStores((state)=> state.deleteCart)
+    const setIsOpen = usePayment((state)=> state.setIsOpen)
 
-    const total = cart.reduce((total, item)=> total + (item.price * item.quantity),0)
+    const total = cart.filter(item=> item.selected).reduce((total, item)=> total + (item.price * item.quantity),0)
     
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -18,10 +19,13 @@ const index = ({isOpen, closeModal}) => {
             alert("Enter the appropriate amount of money")
         } else {
             console.log(`Bayar: ${paymentAmount}, Kembali: ${paymentAmount-total}`)
-            setOrderHistory(cart, total, paymentAmount)
+            const newCart = cart.filter(item => item.selected)
+            setOrderHistory(newCart, total, paymentAmount)
             console.log("Berhasil Membeli: ", orderHistory)
             setPaymentAmount("")
-            deleteCart()
+            const updatedCart = cart.filter(item => !item.selected)
+            deleteCart(updatedCart)
+            setIsOpen(false)
             alert(`Purchase Succes, Change Rp ${formatNumber(paymentAmount - total)}`)
         }
     }
@@ -37,7 +41,7 @@ const index = ({isOpen, closeModal}) => {
                     <button onClick={closeModal} className="bg-transparent text-black fs-4 p-0 m-0">&times;</button>
                 </div>
             </div>
-            {cart.map((item)=>
+            {cart.filter(item => item.selected).map((item)=>
                 <div key={item.id}>
                     <div className="d-flex justify-content-between"> 
                         <h6 className="mb-0">{item.title}</h6>

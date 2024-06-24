@@ -3,6 +3,8 @@ import { create } from "zustand";
 const usePayment = create((set)=>{
     return (
     {   
+        isOpen: false,
+        setIsOpen: (res)=> set({isOpen: res}),
         paymentAmount: "",
         setPaymentAmount: (res)=> set({paymentAmount: res}),
         orderHistory: [],

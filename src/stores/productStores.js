@@ -45,7 +45,19 @@ const useProductStores = create((set) => (
             }
         ],
         cart: [],
-        deleteCart: ()=> set(({cart: []})),
+        deleteCart: (newCart)=> set(({cart: newCart})),
+        isChecked: (id)=> set((state)=> {
+            const updatedCart = state.cart.map(item => {
+                if (id === item.id){
+                    return {...item, selected: !item.selected}
+                } return item
+            })
+            return {cart: updatedCart}
+        }),
+        checkedAll: ()=>set((state)=>{
+            const updatedCart = state.cart.map(item=>({...item, selected: !item.selected}))
+            return {cart: updatedCart}
+        }),
         // addToCart: (product) => set((state)=> ({cart: [product, ...state.cart]})),
         addToCart: (productToadd) => set((state)=> {
             const productIndex = state.cart.findIndex(item=> item.id === productToadd.id);
@@ -54,7 +66,7 @@ const useProductStores = create((set) => (
                 updatedCart[productIndex].quantity += 1;
                 return {cart: updatedCart};
             } else {
-                return {cart: [{...productToadd, quantity: 1}, ...state.cart]};
+                return {cart: [{...productToadd, quantity: 1, selected: false}, ...state.cart]};
             }
         }),
         decreaseQuantity: (productId)=> set((state)=>{
