@@ -6,7 +6,7 @@ const Navbar = (props) => {
   const cart = useProductStores((state) => state.cart);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-transparent">
       <div className="container-fluid ">
         <h1 style={{ cursor: "pointer" }} className="navbar-brand m-0 p-0">
           {props.title}
