@@ -9,15 +9,15 @@ const index = (props) => {
       SetSeeDetail(!seeDetail)
     }
   return (
-    <div className="d-flex justify-content-between mb-3 border-bottom ">
-        <div className=" d-flex mb-3">
+    <div className="d-flex flex-column flex-md-row justify-content-md-between mb-3 border-bottom ">
+        <div className=" d-flex ">
             <div className="ms-3">
               {seeDetail ? 
               <div>
                 {Object.keys(props.product).filter(key => typeof props.product[key] === 'object').map(key=>(
-                  <div className="d-flex mb-3" key={key}>
+                  <div className="d-flex " key={key}>
                     <div>
-                      <img style={{width: "100px"}} className="rounded" src={props.product[key].img} alt={props.product[key].alt} />
+                      <img style={{width: "100px"}} className="rounded mb-2" src={props.product[key].img} alt={props.product[key].alt} />
                     </div>
                     <div className="ms-3"> 
                       <h5>{props.product[key].title}</h5>
@@ -32,7 +32,7 @@ const index = (props) => {
                 <button className="p-0 bg-transparent text-primary fw-normal" onClick={handleSeeDetail}>Hide Detail</button>
               </div>
               :
-              <div className="d-flex mb-3">
+              <div className="d-flex ">
                 <div>
                   <img style={{width: "100px"}} className="rounded" src={props.product[0].img} alt={props.product[0].alt} />
                 </div>
@@ -46,7 +46,7 @@ const index = (props) => {
               }
             </div>
         </div>
-        <p className="align-self-end ">{props.date}</p>
+        <p className="align-self-end ms-3">{props.date}</p>
     </div>
   )
 };
