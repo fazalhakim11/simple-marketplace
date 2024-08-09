@@ -1,17 +1,25 @@
+import { useState } from "react";
 import cartIcon from "../../assets/icon/cart.svg"
 import useProductStores from "../../stores/productStores";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, } from "react-router-dom";
 
-const index = (props) => {
+const Navbar = (props) => {
     const cart = useProductStores((state)=> state.cart)
+    const [toggleNav, setToggleNav] = useState(false)
     const navigate = useNavigate()
+
+    const handleToggle = () => {
+        console.log("Click")
+    }
+
   return (
-    <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom">
+    <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom mw-100">
         <div className="container-fluid px-0">
             <h1 style={{ cursor: 'pointer' }} className="navbar-brand m-0 p-0">{props.title}</h1>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
+            
+            {toggleNav ? 
+                <button className="nav-link active " aria-current="page" onClick={()=>navigate("/")}>Home</button> 
+            :""}
             <div className="collapse ms-5 navbar-collapse justify-content-end w-100" id="navbarSupportedContent">
                 <ul className="navbar-nav mb-lg-0 d-flex justify-content-between w-100">
                     <li className="nav-item d-block">
@@ -53,4 +61,4 @@ const index = (props) => {
   )
 };
 
-export default index
+export default Navbar
