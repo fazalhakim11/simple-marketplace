@@ -16,7 +16,7 @@ const Home = (props) => {
     return (
         <>
         <Navbar title="Toko Onlineku"/>
-        <div className="d-flex flex-wrap gap-4 mt-3 justify-content-center">
+        <div className="d-flex flex-wrap gap-4 mt-3 justify-content-center justify-content-md-start">
         {products.map((product, index)=>(
             <Card
                 key={index}
