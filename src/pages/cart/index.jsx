@@ -48,8 +48,8 @@ const Cart = (props) => {
               Cart is empty
             </p>
           : 
-            <div className="d-flex justify-content-between">
-              <div style={{width: "75%"}} className="d-flex flex-wrap gap-4 mt-3">
+            <div className="d-flex justify-content-between flex-column flex-md-row">
+              <div className="d-flex flex-wrap gap-4 mt-3 mx-auto justify-content-center justify-content-md-start">
                 {cart.map((item, index)=>(
                   <Card 
                     key={item.id}
@@ -62,8 +62,7 @@ const Cart = (props) => {
                 ))}
               </div>
               <div 
-                style={{width: "23%"}}
-                className="mh-100 py-3 px-3 mt-3 border-start border-dark-subtle"
+                className="mh-100 py-3 px-3 mt-3 border-start border-dark-subtle w-order-summary"
               >
                 <h4>Order Summary</h4>
                 <button className="p-0 bg-transparent text-black fw-normal" onClick={checkedAll}>Select All</button>
