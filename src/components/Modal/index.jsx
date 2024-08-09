@@ -33,7 +33,7 @@ const index = ({isOpen, closeModal}) => {
     if (!isOpen) return null
 
   return (
-    <div style={{width: "30%"}} className="d-block position-fixed z-1 top-50 start-50 translate-middle bg-white border border-dark rounded overflow-auto">
+    <div className="w-modal d-block position-fixed z-1 top-50 start-50 translate-middle bg-white border border-dark rounded overflow-auto">
         <div className="d-flex flex-column justify-content-between p-3">
             <div className="d-flex justify-content-between mb-4 ">
                 <h2>Payment</h2>
