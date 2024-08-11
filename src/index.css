@@ -25,6 +25,12 @@ body {
   min-height: 100vh;
 }
 
+.active{
+  color: rgb(237, 237, 237);
+  background-color: rgb(10, 154, 10);
+  border-radius: 3px;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -48,6 +54,10 @@ button {
 @media (max-width: 768px) {
   .w-modal {
     width: 50%;
+  }
+
+  .pad {
+    padding: 0.25rem 0.5rem ;
   }
 } 
 
