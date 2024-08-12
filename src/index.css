@@ -25,12 +25,6 @@ body {
   min-height: 100vh;
 }
 
-.active {
-  color: rgb(237, 237, 237);
-  background-color: rgb(10, 154, 10);
-  border-radius: 3px;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -51,6 +45,14 @@ button {
   width: 40%;
 }
 
+@media (min-width: 608px) {
+  .active {
+    color: rgb(237, 237, 237);
+    background-color: rgb(10, 154, 10);
+    border-radius: 3px;
+  }
+}
+
 @media (max-width: 850px) {
   .pad {
     padding: 0.25rem 0.5rem;
@@ -63,7 +65,7 @@ button {
   }
 }
 
-@media (max-width: 608px) {
+@media (max-width: 607px) {
   .w-modal {
     width: 80%;
   }

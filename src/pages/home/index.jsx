@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar"
 import Card from "../../components/Card";
+import NavbarMobile from "../../components/NavbarMobile"
 
 import useProductStores from "../../stores/productStores.js"
 
@@ -16,6 +17,7 @@ const Home = (props) => {
     return (
         <>
         <Navbar title="Toko Onlineku"/>
+        <NavbarMobile/>
         <div className="d-flex flex-wrap gap-4 mt-3 justify-content-center justify-content-md-start">
         {products.map((product, index)=>(
             <Card

@@ -7,13 +7,13 @@ const Navbar = (props) => {
   const location = useLocation()
 
   return (
-    <nav className="navbar navbar-expand-lg bg-transparent">
+    <nav className="navbar navbar-expand-md bg-transparent">
       <div className="container-fluid ">
-        <h1 style={{ cursor: "pointer" }} className="navbar-brand m-0 p-0">
+        <h1 style={{ cursor: "pointer" }} className="navbar-brand p-0">
           {props.title}
         </h1>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler d-none"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavAltMarkup"

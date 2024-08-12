@@ -1,5 +1,7 @@
 import Navbar from "../../components/Navbar"
 import Card from "./components/Card"
+import NavbarMobile from "../../components/NavbarMobile"
+
 import usePayment from "../../stores/payment";
 
 const index = (props) => {
@@ -7,6 +9,7 @@ const index = (props) => {
   return (
     <div className="min-vh-100 d-flex flex-column ">
         <Navbar title="Order History"/>
+        <NavbarMobile/>
         <div className="mt-3">
           {orderHistory.length === 0 ?
             <p className="text-center mt-5">

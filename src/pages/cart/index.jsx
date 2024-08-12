@@ -2,6 +2,8 @@ import Navbar from "../../components/Navbar"
 import useProductStores from "../../stores/productStores";
 import Card from "../../components/Card";
 import Modal from "../../components/Modal"
+import NavbarMobile from "../../components/NavbarMobile"
+
 import usePayment from "../../stores/payment";
 
 
@@ -36,6 +38,7 @@ const Cart = (props) => {
   return (
     <div className="min-vh-100 d-flex flex-column ">
       <Navbar title="Cart"/>
+      <NavbarMobile/>
       {cart.length === 0 ?
         ""
       :
