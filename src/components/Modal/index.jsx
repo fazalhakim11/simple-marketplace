@@ -63,7 +63,7 @@ const index = ({isOpen, closeModal}) => {
                     value={paymentAmount}
                     onChange={(e)=> setPaymentAmount(e.target.value)}
                 />
-                <button className="ms-3 py-1" type="submit">Pay</button>
+                <button className="ms-3 py-1 text-white" type="submit">Pay</button>
             </form>
         </div>
     </div>

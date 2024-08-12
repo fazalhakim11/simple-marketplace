@@ -68,7 +68,7 @@ const Card = (props) => {
           <div className="d-flex justify-content-end">
             <button
               onClick={props.onClick}
-              className="bg-success py-1 px-2"
+              className="bg-success py-1 px-2 text-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
