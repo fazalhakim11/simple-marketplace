@@ -9,12 +9,13 @@ const index = () => {
     <nav className="d-sm-none d-flex justify-content-around position-fixed bottom-0  z-1 bg-white w-100 py-3 mb-0">
       <NavLink
         to="/"
-        className={location.pathname === "/" ? "text-white" : "text-black"}
+        className={location.pathname === "/" ? "text-success" : "text-black"}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          style={{ width: "22px", height: "22px" }}
+          width="16"
+          height="16"
           fill="currentColor"
           className="bi bi-house-door-fill"
           viewBox="0 0 16 16"
@@ -25,11 +26,12 @@ const index = () => {
       <NavLink
         to="/order-history"
         className={
-          location.pathname === "/order-history" ? "text-white" : "text-black"
+          location.pathname === "/order-history" ? "text-success" : "text-black"
         }
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
+          style={{ width: "22px", height: "22px" }}
           width="16"
           height="16"
           fill="currentColor"
@@ -44,12 +46,13 @@ const index = () => {
       <NavLink
         to="/cart"
         className={
-          location.pathname === "/cart" ? "text-white" : "text-black"
+          location.pathname === "/cart" ? "text-success" : "text-black"
         }
       >
         {cart.length === 0 ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
+            style={{ width: "22px", height: "22px" }}
             width="16"
             height="16"
             fill="currentColor"
@@ -62,6 +65,7 @@ const index = () => {
           <div className="position-relative w-max-content">
             <svg
               xmlns="http://www.w3.org/2000/svg"
+              style={{ width: "22px", height: "22px" }}
               width="16"
               height="16"
               fill="currentColor"
