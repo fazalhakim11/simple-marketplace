@@ -72,7 +72,7 @@ const index = () => {
   };
 
   return (
-    <nav className="d-sm-none d-flex justify-content-around position-fixed bottom-0 start-0 z-1 bg-white w-100 py-3 mb-0">
+    <nav className="d-sm-none d-flex justify-content-around position-fixed bottom-0 start-0 z-1 bg-white w-100 py-3 mb-0 ">
       <NavLink
         to="/"
         className={location.pathname === "/" ? "text-success" : "text-black"}
