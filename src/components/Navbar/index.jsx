@@ -4,7 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = (props) => {
   const cart = useProductStores((state) => state.cart);
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <nav className="navbar navbar-expand-md bg-transparent">
@@ -27,11 +27,22 @@ const Navbar = (props) => {
           className="collapse navbar-collapse justify-content-between"
           id="navbarNavAltMarkup"
         >
-          <NavLink className={`nav-link ms-lg-5 ${location.pathname === "/" ? "px-2 py-1" : ""}`} aria-current="page" to="/">
+          <NavLink
+            className={`nav-link ms-lg-5 ${
+              location.pathname === "/" ? "px-2 py-1" : ""
+            }`}
+            aria-current="page"
+            to="/"
+          >
             Home
           </NavLink>
           <div className="navbar-nav">
-            <NavLink className={`nav-link ${location.pathname === "/order-history" ? "pad" : ""}`} to="/order-history">
+            <NavLink
+              className={`nav-link ${
+                location.pathname === "/order-history" ? "pad text-white" : ""
+              }`}
+              to="/order-history"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="bi bi-clock-history "
@@ -41,12 +52,35 @@ const Navbar = (props) => {
                 <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5" />
               </svg>
             </NavLink>
-            <NavLink className={`nav-link position-relative ${location.pathname === "/cart" ? "pad" : ""}`} to="/cart">
+            <NavLink
+              className={`nav-link position-relative ${
+                location.pathname === "/cart" ? "pad text-white" : ""
+              }`}
+              to="/cart"
+            >
               {cart.length === 0 ? (
-                <img style={{ height: "25px" }} src={cartIcon} alt="" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-bag"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+                </svg>
               ) : (
                 <div className="position-relative w-max-content">
-                  <img style={{ height: "25px" }} src={cartIcon} alt="" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-bag"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+                  </svg>
                   <span className="position-absolute start-100 translate-middle badge rounded-pill bg-danger navbar-nav">
                     {cart.length}
                   </span>

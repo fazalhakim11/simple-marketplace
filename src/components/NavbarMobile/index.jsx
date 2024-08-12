@@ -9,7 +9,7 @@ const index = () => {
     <nav className="d-sm-none d-flex justify-content-around position-fixed bottom-0  z-1 bg-white w-100 py-3 mb-0">
       <NavLink
         to="/"
-        className={location.pathname === "/" ? "text-success" : "text-black"}
+        className={location.pathname === "/" ? "text-white" : "text-black"}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ const index = () => {
       <NavLink
         to="/order-history"
         className={
-          location.pathname === "/order-history" ? "text-success" : "text-black"
+          location.pathname === "/order-history" ? "text-white" : "text-black"
         }
       >
         <svg
@@ -44,7 +44,7 @@ const index = () => {
       <NavLink
         to="/cart"
         className={
-          location.pathname === "/cart" ? "text-success" : "text-black"
+          location.pathname === "/cart" ? "text-white" : "text-black"
         }
       >
         {cart.length === 0 ? (
