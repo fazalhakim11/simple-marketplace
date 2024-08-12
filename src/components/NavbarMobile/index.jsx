@@ -5,8 +5,74 @@ const index = () => {
   const location = useLocation();
   const cart = useProductStores((state) => state.cart);
 
+  const cartLength = () => {
+    return cart.length === 0 ? (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: "22px", height: "22px" }}
+        width="16"
+        height="16"
+        fill="currentColor"
+        className="bi bi-bag"
+        viewBox="0 0 16 16"
+      >
+        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+      </svg>
+    ) : (
+      <div className="position-relative w-max-content">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ width: "22px", height: "22px" }}
+          width="16"
+          height="16"
+          fill="currentColor"
+          className="bi bi-bag"
+          viewBox="0 0 16 16"
+        >
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+        </svg>
+        <span className="position-absolute start-100 translate-middle badge rounded-pill bg-danger navbar-nav">
+          {cart.length}
+        </span>
+      </div>
+    );
+  };
+
+  const cartLengthFill = () => {
+    return cart.length === 0 ? (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: "22px", height: "22px" }}
+        width="16"
+        height="16"
+        fill="currentColor"
+        className="bi bi-bag-fill"
+        viewBox="0 0 16 16"
+      >
+        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
+      </svg>
+    ) : (
+      <div className="position-relative w-max-content">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ width: "22px", height: "22px" }}
+          width="16"
+          height="16"
+          fill="currentColor"
+          className="bi bi-bag-fill"
+          viewBox="0 0 16 16"
+        >
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
+        </svg>
+        <span className="position-absolute start-100 translate-middle badge rounded-pill bg-danger navbar-nav">
+          {cart.length}
+        </span>
+      </div>
+    );
+  };
+
   return (
-    <nav className="d-sm-none d-flex justify-content-around position-fixed bottom-0  z-1 bg-white w-100 py-3 mb-0">
+    <nav className="d-sm-none d-flex justify-content-around position-fixed bottom-0 start-0 z-1 bg-white w-100 py-3 mb-0">
       <NavLink
         to="/"
         className={location.pathname === "/" ? "text-success" : "text-black"}
@@ -49,36 +115,7 @@ const index = () => {
           location.pathname === "/cart" ? "text-success" : "text-black"
         }
       >
-        {cart.length === 0 ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ width: "22px", height: "22px" }}
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-bag"
-            viewBox="0 0 16 16"
-          >
-            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
-          </svg>
-        ) : (
-          <div className="position-relative w-max-content">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ width: "22px", height: "22px" }}
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-bag"
-              viewBox="0 0 16 16"
-            >
-              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
-            </svg>
-            <span className="position-absolute start-100 translate-middle badge rounded-pill bg-danger navbar-nav">
-              {cart.length}
-            </span>
-          </div>
-        )}
+        {location.pathname === "/cart" ? cartLengthFill() : cartLength()}
       </NavLink>
     </nav>
   );
