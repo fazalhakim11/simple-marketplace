@@ -22,7 +22,7 @@ const index = () => {
         }
       ],
       {
-        basename: "/simple-marketplace", // Replace with your actual subfolder path
+        basename: "/", // Replace with your actual subfolder path
       }
     );
     return( 
