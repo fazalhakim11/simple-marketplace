@@ -20,10 +20,7 @@ const index = () => {
           path: "/order-history",
           element: <OrderHistory/>
         }
-      ],
-      {
-        basename: "/", // Replace with your actual subfolder path
-      }
+      ]
     );
     return( 
       <RouterProvider router={router}/>
