@@ -37,12 +37,24 @@ button {
   transition: border-color 0.25s;
 }
 
+.flex-basis{
+  flex-basis: 30%;
+}
+
 .w-max-content {
   width: max-content;
 }
 
 .w-modal {
   width: 40%;
+}
+
+.card .card-text {
+  display: none;
+}
+
+.card:hover .card-text {
+  display: block;
 }
 
 @media (min-width: 608px) {

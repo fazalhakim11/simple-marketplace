@@ -7,9 +7,12 @@ const Card = (props) => {
     <div className="card" style={{ width: "16.3rem" }}>
       <img src={props.img} className="card-img-top" alt={props.alt} />
       <div className="card-body">
-        <h5 className="card-title">{props.title}</h5>
+        <h5 className="card-title mb-0">{props.title}</h5>
+        <p className="m-0">{props.category}</p>
+        {!props.cart && 
         <p className="card-text">{props.desc}</p>
-        <p className="fw-medium mb-1">Rp {formatNumber(props.price)}</p>
+        }
+        <p className="fw-medium mb-1 mt-0">Rp {formatNumber(props.price)}</p>
 
         {props.cart ? (
           <div className="d-flex justify-content-between">
@@ -33,7 +36,7 @@ const Card = (props) => {
               <p className="m-0 p-0">{props.quantity}</p>
               <button
                 onClick={props.decrease}
-                className="bg-transparent text-black fs-5 p-0 "
+                className="bg-transparent text-black p-0 "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,10 +68,10 @@ const Card = (props) => {
             </button>
           </div>
         ) : (
-          <div className="d-flex justify-content-end">
+          <div className="d-flex mt-3">
             <button
               onClick={props.onClick}
-              className="bg-dark py-1 px-2 text-white"
+              className="bg-transparent ps-0 py-1 px-2 text-black"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
