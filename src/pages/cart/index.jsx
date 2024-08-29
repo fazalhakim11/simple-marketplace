@@ -88,7 +88,7 @@ const Cart = (props) => {
                   <h6>Rp {formatNumber(total)}</h6>
                 </div>
                 <div className="d-flex justify-content-end">
-                  <button className="btn btn-success" onClick={()=>openModal()}>Checkout</button>
+                  <button className="btn btn-dark" onClick={()=>openModal()}>Checkout</button>
                 </div>
               </div>
             </div>

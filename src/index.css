@@ -48,7 +48,7 @@ button {
 @media (min-width: 608px) {
   .active {
     color: rgb(237, 237, 237);
-    background-color: rgb(25, 135, 84);
+    background-color: rgb(29, 29, 29);
     border-radius: 3px;
   }
 }
